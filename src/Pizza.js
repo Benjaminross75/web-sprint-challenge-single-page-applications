@@ -13,6 +13,11 @@ export default function Pizza(values){
         <div >
             <h3>Build Your Own Pizza</h3>
             <form onSubmit={onSubmit} id="order-pizza">
+                <input id="name-input"
+                type='text'
+                name='name'
+                placeholder="Your Name"
+                />
             <div style={style}>
                 <h3 style={style}>Choice of size</h3>
                 <h4 style={style2}>required</h4>
