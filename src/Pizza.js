@@ -7,9 +7,12 @@ export default function Pizza(){
         <div>
             <h1>Pizza Form</h1>
             <form onSubmit={onSubmit} id="order-pizza">
-              <input
-               name='name-input'
-              />
+             <input id="name-input"
+               name="name"
+               type='text'
+               placeholder="Your Name"
+               
+             />
             </form>
         </div>
     )
