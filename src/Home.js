@@ -1,17 +1,14 @@
-import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
+const style = {margin: '1rem', padding:'1rem', border: '2px solid black'}
 export default function Home(){
-const navigate = useNavigate()
-
-const routeToPizzaForm = () =>{
-    navigate("pizza-form")
-}
-
-
-return(
-    <div className="home-wrapper">
-        <h2>Order a pizza by clicking the link</h2>
-         <button onCLick={routeToPizzaForm} id="order-pizza">Click to order</button>
-    </div>
-)
+    const navigate = useNavigate()
+    const handleClick = () =>{
+        navigate('/pizza')
+    }
+        return(
+        <div style={style}>
+            <h2>Order Pizza </h2>
+            <button onClick={handleClick}>Order a Pizza</button>
+        </div>
+    )
 }
