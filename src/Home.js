@@ -8,7 +8,7 @@ export default function Home(){
         return(
         <div style={style}>
             <h2>Order Pizza </h2>
-            <button onClick={handleClick}>Order a Pizza</button>
+            <button onClick={handleClick} id='order-pizza'>Order a Pizza</button>
         </div>
     )
 }
