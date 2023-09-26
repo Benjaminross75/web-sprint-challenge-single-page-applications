@@ -3,17 +3,7 @@
  const style = {margin: '2px', padding:'2px', backgroundColor:'lightblue'}
  const style2 = {color:'red'}
 
- const initialValues = {
-    choiceOfSize: '',
-    choiceOfSauce:'',
-    pepperoni: false,
-    sausage: false,
-    canadianBacon: false,
-    onions:false,
-    glutenFree: false,
-    specialInstructions:''
 
-  }
 export default function Pizza(props){
     const{
         values,
