@@ -16,7 +16,16 @@ const initialValues = {
 
 }
 
-const initialPizza = []
+const initialPizza = {
+  choiceOfSize:'',
+  choiceOfSauce: '',
+  pepperoni:false,
+  sausage: false,
+  canadianBacon:false,
+  onions: false,
+  glutenFree: false,
+  specialInstructions:''
+}
 export default function App(){
   const [formValues, setFormValues] = useState(initialValues)
   const [pizza, setPizza] = useState(initialPizza)
@@ -31,6 +40,7 @@ const postNewPizza = newPizza =>{
     setPizza([res.data, ...pizza])
     setFormValues(initialValues)
   }).catch(err =>{ console.error(err)})
+console.log(pizza)
 }
 const formSubmit = () =>{
   console.log('suuubbbmit')
