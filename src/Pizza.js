@@ -177,7 +177,7 @@ export default function Pizza(props){
                      name='special-text'
                      type='text'
                      placeholder="Anything else you would like to add?"
-                     value={values.specialInstructions}
+                     value='/Here are the special instructions/i'
                      onChange={onChange}
 
                     />
