@@ -12,31 +12,28 @@ export default function Pizza(props){
 
     } = props
 
-    // const onSubmit = evt =>{
-    //     evt.preventDefault()
-    //     submit()
-    // }
-
-    const onChange = evt =>{
-      const {name, value, checked, type} = evt.target
-    //  const valueToUse = type === 'checkbox' ? checked : value
-    //    inputChange(name,valueToUse)
-    if(type === 'text'){
-        inputChange(name,value)
-    }
-    if(type === 'checkbox'){
-        inputChange(name,checked)
-    }
-    if(type ==='radio'){
-        if(checked){
-            inputChange(name,value)
-        }
-    }
-    }
     const onSubmit = evt =>{
         evt.preventDefault()
         submit()
     }
+
+    const onChange = evt =>{
+      const {name, value, checked, type} = evt.target
+      const valueToUse = type === 'checkbox' ? checked : value
+        inputChange(name,valueToUse)
+    // if(type === 'text'){
+    //     inputChange(name,value)
+    // }
+    // if(type === 'checkbox'){
+    //     inputChange(name,checked)
+    // }
+    // if(type ==='radio'){
+    //     if(checked){
+    //         inputChange(name,value)
+    //     }
+    }
+
+
     return(
         <div >
             <h3>Build Your Own Pizza</h3>
@@ -55,6 +52,7 @@ export default function Pizza(props){
                     onChange={onChange}
                     value={values.choiceOfSize}
                     name='choiceOfSize'
+                    checked={values.choiceOfSize === 'large' || values.choiceOfSize === 'medium' || values.choiceOfSize === 'small'}
                     >
                         <option value=''> --- Select an option</option>
                         <option value='small'>Small</option>
