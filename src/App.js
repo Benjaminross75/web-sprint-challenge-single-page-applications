@@ -16,16 +16,16 @@ const initialValues = {
 
 }
 
-// const initialPizza = {
-//   choiceOfSize:'',
-//   choiceOfSauce: '',
-//   pepperoni:'',
-//   sausage: '',
-//   canadianBacon:'',
-//   onions: '',
-//   glutenFree: '',
-//   specialInstructions:''
-// }
+const initialPizza = {
+  choiceOfSize:'',
+  choiceOfSauce: '',
+  pepperoni:false,
+  sausage: false,
+  canadianBacon:false,
+  onions: false,
+  glutenFree: false,
+  specialInstructions:''
+}
 export default function App(){
   const [formValues, setFormValues] = useState(initialValues)
   const [pizza, setPizza] = useState([])
