@@ -60,7 +60,7 @@ const formSubmit = () =>{
     <div className="container">
       <h1>Bloomtech Eats</h1>
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/'id='order-pizza' element={<Home />}/>
         <Route path='/pizza' element={<Pizza values={formValues} inputChange={inputChange} submit={formSubmit}/>}/>
       </Routes>
     </div>

@@ -185,7 +185,7 @@ export default function Pizza(props){
 
                     />
                 </div>
-                <button id="order-pizza" type='submit'>submit</button>
+                <button  type='submit'>submit</button>
             </form>
         </div>
     )
