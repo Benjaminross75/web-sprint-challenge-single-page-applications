@@ -8,7 +8,8 @@ export default function Pizza(props){
     const{
         values,
         inputChange,
-        submit
+        submit,
+        errors
 
     } = props
 
@@ -21,26 +22,21 @@ export default function Pizza(props){
       const {name, value, checked, type} = evt.target
       const valueToUse = type === 'checkbox' ? checked : value
         inputChange(name,valueToUse)
-    // if(type === 'text'){
-    //     inputChange(name,value)
-    // }
-    // if(type === 'checkbox'){
-    //     inputChange(name,checked)
-    // }
-    // if(type ==='radio'){
-    //     if(checked){
-    //         inputChange(name,value)
-    //     }
+
     }
 
 
     return(
         <div >
             <h3>Build Your Own Pizza</h3>
+            <div className="errors">
+                <div>{errors.name}</div>
+            </div>
             <form onSubmit={onSubmit} id="pizza-form">
                 <input id="name-input"
                 type='text'
                 name='name'
+                value={values.name}
                 placeholder="Your Name"
                 onChange={onChange}
                 />

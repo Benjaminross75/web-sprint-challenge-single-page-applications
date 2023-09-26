@@ -4,7 +4,9 @@ import {Routes, Route, } from 'react-router-dom'
 import Home from './Home'
 import Pizza from './Pizza'
 import axios from 'axios'
+import *as yup from 'yup'
 const initialValues = {
+  name:'',
   choiceOfSize: '',
   choiceOfSauce:'',
   pepperoni: false,
@@ -17,6 +19,7 @@ const initialValues = {
 }
 
 const initialPizza = {
+  name:'',
   choiceOfSize:'',
   choiceOfSauce: '',
   pepperoni:false,
@@ -26,11 +29,36 @@ const initialPizza = {
   glutenFree: false,
   specialInstructions:''
 }
+
+const initialErrors = () =>({
+  name: ''
+
+})
+const userSchema = yup.object().shape({
+  name: yup
+  .string()
+  .trim()
+  .required('name is required')
+  .min(2,'name must be at least 2 characters')
+})
+
 export default function App(){
   const [formValues, setFormValues] = useState(initialValues)
   const [pizza, setPizza] = useState([])
+  const [errors, setErrors] = useState(initialErrors())
+
+  const validate = (name, value) =>{
+    yup.reach(userSchema, name)
+    .validate(value)
+    .then(()=> setErrors({...errors, [name]:''}))
+    .catch(err=> setErrors({...errors, [name]:err.errors[0] }))
+  }
+
 const inputChange = (name,value)=>{
+  validate(name,value)
   setFormValues({...formValues,[name]: value})
+
+
 }
 
 const postNewPizza = newPizza =>{
@@ -46,7 +74,7 @@ const postNewPizza = newPizza =>{
 const formSubmit = () =>{
   console.log('suuubbbmit')
   const newPizza = {
-
+    name: formValues.name,
     choiceOfSize: formValues.choiceOfSize,
     choiceOfSauce: formValues.choiceOfSauce,
     specialInstructions: formValues.specialInstructions,
@@ -61,7 +89,7 @@ const formSubmit = () =>{
       <h1>Bloomtech Eats</h1>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/pizza' element={<Pizza values={formValues} inputChange={inputChange} submit={formSubmit}/>}/>
+        <Route path='/pizza' element={<Pizza values={formValues} inputChange={inputChange} submit={formSubmit} errors={errors}/>}/>
       </Routes>
     </div>
   )
