@@ -16,19 +16,19 @@ const initialValues = {
 
 }
 
-const initialPizza = {
-  choiceOfSize:'',
-  choiceOfSauce: '',
-  pepperoni:'',
-  sausage: '',
-  canadianBacon:'',
-  onions: '',
-  glutenFree: '',
-  specialInstructions:''
-}
+// const initialPizza = {
+//   choiceOfSize:'',
+//   choiceOfSauce: '',
+//   pepperoni:'',
+//   sausage: '',
+//   canadianBacon:'',
+//   onions: '',
+//   glutenFree: '',
+//   specialInstructions:''
+// }
 export default function App(){
   const [formValues, setFormValues] = useState(initialValues)
-  const [pizza, setPizza] = useState(initialPizza)
+  const [pizza, setPizza] = useState([])
 const inputChange = (name,value)=>{
   setFormValues({...formValues,[name]: value})
 }
@@ -37,7 +37,7 @@ const postNewPizza = newPizza =>{
 
   axios.post('https://reqres.in/api/orders', newPizza)
   .then(res =>{
-    setPizza([res.data, ...pizza])
+    setPizza([...pizza, res.data])
     setFormValues(initialValues)
   }).catch(err =>{ console.error(err)})
 console.log(pizza)

@@ -172,7 +172,7 @@ export default function Pizza(props){
 
                     />
                 </div>
-                <button onClick={onSubmit}>submit</button>
+                <button type='submit'>submit</button>
             </form>
         </div>
     )
