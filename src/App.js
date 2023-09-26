@@ -15,14 +15,18 @@ const initialValues = {
 
 }
 export default function App(){
-const [formValues, setFormValues] = useState(initialValues)
+  const [formValues, setFormValues] = useState(initialValues)
+
+const inputChange = (name,value)=>{
+  setFormValues({...formValues,[name]: value})
+}
 
   return(
     <div className="container">
       <h1>Bloomtech Eats</h1>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/pizza' element={<Pizza values={formValues}/>}/>
+        <Route path='/pizza' element={<Pizza values={formValues} inputChange={inputChange}/>}/>
       </Routes>
     </div>
   )
