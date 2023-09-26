@@ -19,11 +19,11 @@ const initialValues = {
 const initialPizza = {
   choiceOfSize:'',
   choiceOfSauce: '',
-  pepperoni:false,
-  sausage: false,
-  canadianBacon:false,
-  onions: false,
-  glutenFree: false,
+  pepperoni:'',
+  sausage: '',
+  canadianBacon:'',
+  onions: '',
+  glutenFree: '',
   specialInstructions:''
 }
 export default function App(){
