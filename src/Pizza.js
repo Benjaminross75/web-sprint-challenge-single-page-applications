@@ -33,7 +33,7 @@ export default function Pizza(props){
     return(
         <div >
             <h3>Build Your Own Pizza</h3>
-            <form onSubmit={onSubmit} id="order-pizza">
+            <form onSubmit={onSubmit} id="pizza-form">
                 <input id="name-input"
                 type='text'
                 name='name'
