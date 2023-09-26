@@ -17,12 +17,14 @@
 export default function Pizza(props){
     const{
         values,
-        inputChange
+        inputChange,
+        submit
 
     } = props
 
-    const onSubmit = () =>{
-        console.log("subbmitted")
+    const onSubmit = evt =>{
+        evt.preventDefault()
+        submit()
     }
 
     const onChange = evt =>{
@@ -180,6 +182,7 @@ export default function Pizza(props){
 
                     />
                 </div>
+                <button onClick={onSubmit}>submit</button>
             </form>
         </div>
     )
