@@ -174,7 +174,7 @@ export default function Pizza(props){
                 </div>
                 <div>
                     <input id="special-text"
-                     name='special-text'
+                     name='specialInstructions'
                      type='text'
                      placeholder="Anything else you would like to add?"
                      value={values.specialInstructions}
