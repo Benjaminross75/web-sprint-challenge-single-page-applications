@@ -12,15 +12,30 @@ export default function Pizza(props){
 
     } = props
 
-    const onSubmit = evt =>{
-        evt.preventDefault()
-        submit()
-    }
+    // const onSubmit = evt =>{
+    //     evt.preventDefault()
+    //     submit()
+    // }
 
     const onChange = evt =>{
       const {name, value, checked, type} = evt.target
-     const valueToUse = type === 'checkbox' ? checked : value
-       inputChange(name,valueToUse)
+    //  const valueToUse = type === 'checkbox' ? checked : value
+    //    inputChange(name,valueToUse)
+    if(type === 'text'){
+        inputChange(name,value)
+    }
+    if(type === 'checkbox'){
+        inputChange(name,checked)
+    }
+    if(type ==='radio'){
+        if(checked){
+            inputChange(name,value)
+        }
+    }
+    }
+    const onSubmit = evt =>{
+        evt.preventDefault()
+        submit()
     }
     return(
         <div >

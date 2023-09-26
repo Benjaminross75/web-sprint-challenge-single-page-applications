@@ -37,10 +37,11 @@ const postNewPizza = newPizza =>{
 
   axios.post('https://reqres.in/api/orders', newPizza)
   .then(res =>{
+    console.log(res)
     setPizza([...pizza, res.data])
     setFormValues(initialValues)
   }).catch(err =>{ console.error(err)})
-console.log(pizza)
+//console.log(pizza)
 }
 const formSubmit = () =>{
   console.log('suuubbbmit')
