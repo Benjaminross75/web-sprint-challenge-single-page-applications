@@ -31,7 +31,15 @@ const initialPizza = {
 }
 
 const initialErrors = () =>({
-  name: ''
+  name: '',
+  choiceOfSize: '',
+  choiceOfSauce: '',
+  pepperoni: '',
+  sausage:'',
+  canadianBacon:'',
+  onions:'',
+  glutenFree: '',
+  specialInstructions:''
 
 })
 const userSchema = yup.object().shape({
@@ -39,7 +47,15 @@ const userSchema = yup.object().shape({
   .string()
   .trim()
   .required('name is required')
-  .min(2,'name must be at least 2 characters')
+  .min(2,'name must be at least 2 characters'),
+  choiceOfSize: yup.string(),
+  choiceOfSauce: yup.string(),
+  pepperoni:yup.boolean(),
+  sausage: yup.boolean(),
+  canadianBacon: yup.boolean(),
+  onions: yup.boolean(),
+  glutenFree: yup.boolean(),
+  specialInstructions: yup.string()
 })
 
 export default function App(){
